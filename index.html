@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bisseção</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="box">
+    <h1>Método da Bisseção</h1>
+
+    <form id="frm" class="card">
+      <label>Grau
+        <input id="grau" type="number" min="0" placeholder="3" required>
+      </label>
+
+      <label>Coeficientes
+        <input id="coef" type="text" placeholder="Ex.: 1, 0, -1, -2" required>
+        <small>Para grau 3, informe 4 coeficientes.</small>
+      </label>
+
+      <div class="grid">
+        <label>a
+          <input id="a" type="number" step="any" min="-1000" max="1000" placeholder="1" required>
+        </label>
+        <label>b
+          <input id="b" type="number" step="any" min="-1000" max="1000" placeholder="2" required>
+        </label>
+        <label>Tolerância
+          <input id="tol" type="number" step="any" placeholder="0.0001" required>
+        </label>
+        <label>Máx. iterações
+          <input id="maxit" type="number" min="1" value="50" required>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Calcular</button>
+        <button class="btn ghost" type="button" id="limpar">Limpar</button>
+      </div>
+    </form>
+
+    <section class="card">
+      <h2>Resultado</h2>
+      <p><b>Raiz:</b> <span id="raiz">—</span>;
+        <b>Erro (|b−a|/2):</b> <span id="erro">—</span>;
+        <b>Iterações:</b> <span id="iter">—</span>
+      </p>
+      <small>Parada: (b − a)/2 ≤ tolerância</small>
+    </section>
+
+    <section class="card">
+      <h2>Iterações</h2>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Xa</th>
+              <th>f(Xa)</th>
+              <th>Xb</th>
+              <th>f(Xb)</th>
+              <th>Xn</th>
+              <th>f(Xn)</th>
+              <th>|b−a|/2</th>
+            </tr>
+          </thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
