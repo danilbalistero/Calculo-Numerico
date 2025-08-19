@@ -1,80 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bisseção</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de Raízes Polinomiais</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-  <main class="box">
-    <h1>Método da Bisseção</h1>
+  <div class="container">
+    <h1>Calculadora de Raízes</h1>
 
-    <form id="frm" class="card">
-      <label>Grau
-        <input id="grau" type="number" min="0" placeholder="3" required>
-      </label>
+    <div class="input-group">
+      <label for="grau">Grau do Polinômio:</label>
+      <input type="number" id="grau" value="2" min="1"/>
+    </div>
 
-      <label>Coeficientes
-        <input id="coef" type="text" placeholder="Ex.: 1, 0, -1, -2" required>
-        <small>Para grau 3, informe 4 coeficientes.</small>
-      </label>
+    <div class="input-group">
+      <label>Coeficientes:</label>
+      <div id="coeficientes-container" class="coef-inputs"></div>
+    </div>
 
-      <div class="grid">
-        <label>a
-          <input id="a" type="number" step="any" min="-1000" max="1000" placeholder="1" required>
-        </label>
-        <label>b
-          <input id="b" type="number" step="any" min="-1000" max="1000" placeholder="2" required>
-        </label>
-        <label>Tolerância
-          <input id="tol" type="number" step="any" placeholder="0.0001" required>
-        </label>
-        <label>Máx. iterações
-          <input id="maxit" type="number" min="1" value="50" required>
-        </label>
+    <div class="input-group">
+      <label for="limite-a">Intervalo de Busca [a, b]:</label>
+      <div class="grid-2">
+        <input type="number" id="limite-a" value="-10" step="0.1"/>
+        <input type="number" id="limite-b" value="10" step="0.1"/>
       </div>
+    </div>
 
-      <div class="actions">
-        <button class="btn" type="submit">Calcular</button>
-        <button class="btn ghost" type="button" id="limpar">Limpar</button>
-      </div>
-    </form>
+    <div class="input-group">
+      <label for="erro">Precisão:</label>
+      <input type="number" id="erro" value="0.001" step="0.0001" min="0"/>
+    </div>
 
-    <section class="card">
-      <h2>Resultado</h2>
-      <p><b>Raiz:</b> <span id="raiz">—</span>;
-        <b>Erro (|b−a|/2):</b> <span id="erro">—</span>;
-        <b>Iterações:</b> <span id="iter">—</span>
-      </p>
-      <small>Parada: (b − a)/2 ≤ tolerância</small>
-    </section>
+    <button id="btn-encontrar" class="action-btn">1. Encontrar Intervalos (Bolzano)</button>
 
-    <section class="card">
-      <h2>Iterações</h2>
-      <div class="table">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Xa</th>
-              <th>f(Xa)</th>
-              <th>Xb</th>
-              <th>f(Xb)</th>
-              <th>Xn</th>
-              <th>f(Xn)</th>
-              <th>|b−a|/2</th>
-            </tr>
-          </thead>
-          <tbody id="tb"></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+    <div class="results">
+      <h2>Polinômio:</h2>
+      <p id="polinomio-display">f(x) = ...</p>
+
+      <h2>2. Escolha um intervalo para a Bissecção:</h2>
+      <div id="intervalos-encontrados">Nenhum intervalo encontrado.</div>
+    </div>
+
+    <div class="results">
+      <h2>3. Resultados do Método de Bissecção:</h2>
+      <p id="raiz-final"></p>
+      <table id="tabela-bisseccao" style="display:none;">
+        <thead>
+          <tr>
+            <th>Iteração</th>
+            <th>a</th>
+            <th>b</th>
+            <th>x</th>
+            <th>f(x)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="log-final"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
-
 </html>
