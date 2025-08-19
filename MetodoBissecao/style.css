@@ -1,0 +1,157 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #440660;
+  color: #222;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.results {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.results h2 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-group { margin-bottom: 14px; }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  outline: none;
+}
+
+input[type="number"]:focus {
+  border-color: #3b82f6;         
+  box-shadow: 0 0 0 2px rgba(59,130,246,.2);
+}
+
+.coef-inputs { display: grid; gap: 8px; }
+
+.coef-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.coef-label {
+  width: 70px;
+  text-align: right;
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+  color: #666;
+  font-size: .92rem;
+}
+
+.action-btn,
+.interval-btn {
+  padding: 11px 14px;
+  border-radius: 6px;
+  border: 1px solid #3b82f6;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-btn { width: 100%; margin-top: 14px; }
+
+.action-btn:hover,
+.interval-btn:hover { background: #316fcd; border-color: #316fcd; }
+
+.interval-btn {
+  background: #fff;
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+.interval-btn:hover {
+  background: #eaf2ff;
+}
+
+#polinomio-display,
+#log-final {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+  color: #333;
+}
+
+#intervalos-encontrados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+#tabela-bisseccao {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid #eee;
+}
+
+#tabela-bisseccao th,
+#tabela-bisseccao td {
+  padding: 8px 10px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+#tabela-bisseccao thead th {
+  background: #f3f4f6;
+  color: #555;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .coef-label { width: 60px; }
+}
